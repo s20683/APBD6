@@ -1,0 +1,74 @@
+-- Create the Medicament table
+
+CREATE SCHEMA hospital;
+GO
+
+CREATE TABLE hospital.Medicament (
+    IdMedicament INT PRIMARY KEY,
+    Name NVARCHAR(100),
+    Description NVARCHAR(100),
+    Type NVARCHAR(100)
+);
+
+-- Create the Patient table
+CREATE TABLE hospital.Patient (
+    IdPatient INT PRIMARY KEY,
+    FirstName NVARCHAR(100),
+    LastName NVARCHAR(100),
+    Birthdate DATE
+);
+
+-- Create the Doctor table
+CREATE TABLE hospital.Doctor (
+    IdDoctor INT PRIMARY KEY,
+    FirstName NVARCHAR(100),
+    LastName NVARCHAR(100),
+    Email NVARCHAR(100)
+);
+
+-- Create the Prescription table
+CREATE TABLE hospital.Prescription (
+    IdPrescription INT PRIMARY KEY,
+    Date DATE,
+    DueDate DATE,
+    IdPatient INT,
+    IdDoctor INT,
+    FOREIGN KEY (IdPatient) REFERENCES Patient(IdPatient),
+    FOREIGN KEY (IdDoctor) REFERENCES Doctor(IdDoctor)
+);
+
+-- Create the Prescription_Medicament table
+CREATE TABLE hospital.Prescription_Medicament (
+    IdMedicament INT,
+    IdPrescription INT,
+    Dose INT,
+    Details NVARCHAR(100),
+    PRIMARY KEY (IdMedicament, IdPrescription),
+    FOREIGN KEY (IdMedicament) REFERENCES Medicament(IdMedicament),
+    FOREIGN KEY (IdPrescription) REFERENCES Prescription(IdPrescription)
+);
+
+-- Insert sample data into Medicament table
+INSERT INTO hospital.Medicament (IdMedicament, Name, Description, Type) VALUES
+(1, 'Paracetamol', 'Pain relief', 'Tablet'),
+(2, 'Ibuprofen', 'Anti-inflammatory', 'Tablet');
+
+-- Insert sample data into Patient table
+INSERT INTO hospital.Patient (IdPatient, FirstName, LastName, Birthdate) VALUES
+(1, 'John', 'Doe', '1980-01-01'),
+(2, 'Jane', 'Smith', '1990-02-02');
+
+-- Insert sample data into Doctor table
+INSERT INTO hospital.Doctor (IdDoctor, FirstName, LastName, Email) VALUES
+(1, 'Alice', 'Brown', 'alice.brown@example.com'),
+(2, 'Bob', 'White', 'bob.white@example.com');
+
+-- Insert sample data into Prescription table
+INSERT INTO hospital.Prescription (IdPrescription, Date, DueDate, IdPatient, IdDoctor) VALUES
+(1, '2024-01-01', '2024-01-10', 1, 1),
+(2, '2024-02-01', '2024-02-10', 2, 2);
+
+-- Insert sample data into Prescription_Medicament table
+INSERT INTO hospital.Prescription_Medicament (IdMedicament, IdPrescription, Dose, Details) VALUES
+(1, 1, 500, 'Take one tablet every 6 hours'),
+(2, 2, 200, 'Take one tablet every 8 hours');
