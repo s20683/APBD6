@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Project6.Models;
 
-public partial class TripContext : DbContext
+public partial class HospitalContext : DbContext
 {
-    public TripContext()
+    public HospitalContext()
     {
     }
 
-    public TripContext(DbContextOptions<TripContext> options)
+    public HospitalContext(DbContextOptions<HospitalContext> options)
         : base(options)
     {
     }

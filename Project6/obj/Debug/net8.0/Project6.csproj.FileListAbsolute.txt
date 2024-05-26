@@ -148,3 +148,4 @@ C:\Users\MichałPała\RiderProjects\Project6\Project6\obj\Debug\net8.0\refint\Pr
 C:\Users\MichałPała\RiderProjects\Project6\Project6\obj\Debug\net8.0\Project6.pdb
 C:\Users\MichałPała\RiderProjects\Project6\Project6\obj\Debug\net8.0\Project6.genruntimeconfig.cache
 C:\Users\MichałPała\RiderProjects\Project6\Project6\obj\Debug\net8.0\ref\Project6.dll
+C:\Users\MichałPała\RiderProjects\Project6\Project6\obj\Debug\net8.0\Project6.sourcelink.json
